@@ -1,0 +1,28 @@
+[user]
+    name = leasingshen
+    email = leasingshen@outlook.com
+
+[core]
+    editor = nvim
+    autocrlf = input
+    excludesfile = ~/.gitignore_global
+
+[color]
+    ui = auto
+
+[pull]
+    rebase = true
+
+[push]
+    default = current
+    autoSetupRemote = true
+
+[init]
+    defaultBranch = main
+
+[alias]
+    st  = status
+    co  = checkout
+    br  = branch
+    lg  = log --oneline --graph --decorate --all
+    last = log -1 HEAD
