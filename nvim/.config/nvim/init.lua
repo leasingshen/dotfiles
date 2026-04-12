@@ -302,6 +302,12 @@ require("lazy").setup({
                 "black",
                 "isort",
                 "shfmt",
+                -- LSP servers
+                "lua-language-server",
+                "pyright",
+                "typescript-language-server",
+                "bash-language-server",
+                "json-lsp",
             },
             run_on_start = true,
         },
@@ -351,7 +357,6 @@ require("lazy").setup({
             })
 
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "pyright", "ts_ls", "bashls", "jsonls" },
                 automatic_enable = true,
             })
         end,
