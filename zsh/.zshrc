@@ -63,3 +63,6 @@ alias ...='cd ../..'
 alias g='git'
 alias v='nvim'
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
+
+# ── Envdir Active ────────────────────────────────────────────────────────────
+eval "$(direnv hook zsh)"
