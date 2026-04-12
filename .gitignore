@@ -2,6 +2,11 @@
 .DS_Store
 Thumbs.db
 
+# Browsers
+google-chrome*/
+chromium/
+firefox/
+
 # Editor
 .idea/
 *.swp

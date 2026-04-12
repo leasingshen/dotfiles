@@ -1,6 +1,6 @@
 STOW_DIR    := $(shell pwd)
 STOW_TARGET := $(HOME)
-PACKAGES    := zsh git nvim
+PACKAGES    := zsh git nvim systemd
 
 # Packages installed via apt
 APT_PKGS := git zsh curl stow build-essential unzip ripgrep fd-find \
@@ -60,6 +60,10 @@ post-install:
 	else \
 		echo "==> [shell] Default shell is already zsh, skipping."; \
 	fi
+	@# Reload systemd user daemon after stowing units
+	@echo "==> [systemd] Reloading user daemon..."
+	@systemctl --user daemon-reload 2>/dev/null || true
+	@echo "==> [systemd] Done."
 	@# Bootstrap Neovim plugins headlessly via Lazy.nvim
 	@echo "==> [nvim] Syncing plugins (Lazy.nvim)..."
 	@eval "$$($(BREW) shellenv)" && \
