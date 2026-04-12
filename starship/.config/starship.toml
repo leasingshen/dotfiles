@@ -1,0 +1,155 @@
+# Catppuccin Mocha theme for Starship
+# https://github.com/catppuccin/starship
+
+palette = "catppuccin_mocha"
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo  = "#f2cdcd"
+pink      = "#f5c2e7"
+mauve     = "#cba6f7"
+red       = "#f38ba8"
+maroon    = "#eba0ac"
+peach     = "#fab387"
+yellow    = "#f9e2af"
+green     = "#a6e3a1"
+teal      = "#94e2d5"
+sky       = "#89dceb"
+sapphire  = "#74c7ec"
+blue      = "#89b4fa"
+lavender  = "#b4befe"
+text      = "#cdd6f4"
+subtext1  = "#bac2de"
+subtext0  = "#a6adc8"
+overlay2  = "#9399b2"
+overlay1  = "#7f849c"
+overlay0  = "#6c7086"
+surface2  = "#585b70"
+surface1  = "#45475a"
+surface0  = "#313244"
+base      = "#1e1e2e"
+mantle    = "#181825"
+crust     = "#11111b"
+
+# ── Prompt format ─────────────────────────────────────────────────────────────
+format = """
+[╭─](overlay0)$os$username$hostname$directory$git_branch$git_status$git_state\
+$nodejs$python$rust$golang$java$c$cmake$docker_context$nix_shell$env_var\
+$cmd_duration
+[╰─](overlay0)$character"""
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+[os]
+disabled = false
+style = "bold blue"
+
+[os.symbols]
+Linux   = " "
+Windows = "󰍲 "
+Macos   = " "
+
+# ── Username ──────────────────────────────────────────────────────────────────
+[username]
+style_user  = "bold mauve"
+style_root  = "bold red"
+format      = "[$user]($style) "
+show_always = false
+
+# ── Hostname ──────────────────────────────────────────────────────────────────
+[hostname]
+ssh_only  = false
+style     = "bold sapphire"
+format    = "[@$hostname]($style) "
+disabled  = false
+
+# ── Directory ────────────────────────────────────────────────────────────────
+[directory]
+style            = "bold lavender"
+read_only_style  = "bold red"
+read_only        = " 󰌾"
+truncation_length = 4
+truncate_to_repo = false
+format           = "[$path]($style)[$read_only]($read_only_style) "
+
+# ── Git ───────────────────────────────────────────────────────────────────────
+[git_branch]
+style  = "bold green"
+symbol = " "
+format = "[$symbol$branch(:$remote_branch)]($style) "
+
+[git_status]
+style     = "bold yellow"
+format    = "([$all_status$ahead_behind]($style) )"
+conflicted = "󰞇 "
+ahead      = "⇡${count}"
+behind     = "⇣${count}"
+diverged   = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked  = "? "
+stashed    = " "
+modified   = "! "
+staged     = "+ "
+renamed    = "» "
+deleted    = "✘ "
+
+[git_state]
+style   = "bold peach"
+format  = "[$state($progress_current/$progress_total)]($style) "
+
+# ── Languages ────────────────────────────────────────────────────────────────
+[nodejs]
+style  = "bold green"
+symbol = " "
+format = "[$symbol($version)]($style) "
+
+[python]
+style          = "bold yellow"
+symbol         = " "
+format         = "[$symbol$pyenv_prefix($version)(\\($virtualenv\\))]($style) "
+python_binary  = ["python3", "python"]
+
+[rust]
+style  = "bold peach"
+symbol = " "
+format = "[$symbol($version)]($style) "
+
+[golang]
+style  = "bold sky"
+symbol = " "
+format = "[$symbol($version)]($style) "
+
+[java]
+style  = "bold red"
+symbol = " "
+format = "[$symbol($version)]($style) "
+
+[c]
+style  = "bold sapphire"
+symbol = " "
+format = "[$symbol($version(-$name))]($style) "
+
+[cmake]
+style  = "bold blue"
+format = "[$symbol($version)]($style) "
+
+# ── Tools ─────────────────────────────────────────────────────────────────────
+[docker_context]
+style  = "bold blue"
+symbol = " "
+format = "[$symbol$context]($style) "
+
+[nix_shell]
+style  = "bold blue"
+symbol = " "
+format = "[$symbol$state(\\($name\\))]($style) "
+
+# ── Duration & Character ──────────────────────────────────────────────────────
+[cmd_duration]
+style          = "bold overlay2"
+min_time       = 2_000
+format         = "[ $duration]($style) "
+show_milliseconds = false
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol   = "[❯](bold red)"
+vimcmd_symbol  = "[❮](bold mauve)"

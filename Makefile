@@ -1,6 +1,6 @@
 STOW_DIR    := $(shell pwd)
 STOW_TARGET := $(HOME)
-PACKAGES    := zsh git nvim systemd
+PACKAGES    := zsh git nvim systemd starship
 
 # Packages installed via apt
 APT_PKGS := git zsh curl stow build-essential unzip ripgrep fd-find \

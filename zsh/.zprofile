@@ -1,7 +1,7 @@
 [[ -o interactive ]] || return
 
 dotfile_auto_sync() {
-    local repo="${DOTFILE_REPO:-$HOME/dotfile}"
+    local repo="${DOTFILE_REPO:-$HOME/dotfiles}"
     local upstream remote local_ref remote_ref base_ref
 
     command -v git >/dev/null 2>&1 || return
@@ -30,7 +30,10 @@ dotfile_auto_sync() {
 
     if [[ "$local_ref" == "$base_ref" ]]; then
         if git -C "$repo" merge --ff-only --quiet '@{upstream}' >/dev/null 2>&1; then
-            print -P "%F{green}[dotfile]%f 已同步最新提交"
+            print -P "%F{green}[dotfile]%f 已同步最新提交，正在重新 stow..."
+            make -C "$repo" stow --quiet 2>/dev/null \
+                && print -P "%F{green}[dotfile]%f stow 完成" \
+                || print -P "%F{yellow}[dotfile]%f stow 失败，请手动运行 make stow"
         else
             print -P "%F{red}[dotfile]%f 自动同步失败：无法 fast-forward"
         fi

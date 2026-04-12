@@ -7,14 +7,18 @@
 ```
 dotfiles/
 ├── git/
-│   └── .gitconfig          # Git 全局配置、别名
+│   └── .gitconfig              # Git 全局配置、别名
 ├── nvim/
 │   └── .config/nvim/
-│       └── init.lua        # Neovim 配置（Lazy.nvim）
+│       └── init.lua            # Neovim 配置（Lazy.nvim）
+├── starship/
+│   └── .config/
+│       └── starship.toml       # Starship 提示符（Catppuccin Mocha）
+├── systemd/
 ├── zsh/
-│   ├── .zshenv             # 环境变量（所有 shell 均加载）
-│   ├── .zprofile           # 登录 shell：dotfiles 自动同步
-│   └── .zshrc              # 交互 shell：插件、提示符、别名
+│   ├── .zshenv                 # 环境变量（所有 shell 均加载）
+│   ├── .zprofile               # 登录 shell：dotfiles 自动同步 + stow
+│   └── .zshrc                  # 交互 shell：插件、提示符、别名
 └── Makefile
 ```
 
@@ -32,10 +36,12 @@ make
 |------|------|
 | `apt` | 安装系统依赖：git / zsh / stow / build-essential / ripgrep / fd / nodejs / python3 等 |
 | `brew` | 安装 Homebrew（若未安装），再安装 neovim / starship / direnv |
-| `stow` | 将 `zsh` / `git` / `nvim` 三个包 stow 到 `$HOME` |
+| `stow` | 将 `zsh` / `git` / `nvim` / `systemd` / `starship` 五个包 stow 到 `$HOME` |
 | `post-install` | 设置 zsh 为默认 shell；headless 启动 nvim 同步所有插件 |
 
 安装完成后重启终端，或执行 `exec zsh`。
+
+也可以单独运行某一步，例如 `make stow` 或 `make post-install`。
 
 ## 组件说明
 

@@ -46,13 +46,6 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-# ── Key bindings ─────────────────────────────────────────────────────────────
-bindkey -e
-bindkey '^[[A' history-search-backward
-bindkey '^[[B' history-search-forward
-bindkey '^[[1;5C' forward-word   # Ctrl+Right
-bindkey '^[[1;5D' backward-word  # Ctrl+Left
-
 # ── Aliases ──────────────────────────────────────────────────────────────────
 alias ls='ls --color=auto'
 alias ll='ls -alF'
