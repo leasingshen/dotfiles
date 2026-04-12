@@ -1,0 +1,16 @@
+[Unit]
+Description=Dotfile 同步总入口
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/dotfiles
+ExecStart=/usr/bin/git add -A
+ExecStart=/usr/bin/bash -c 'git diff --cached --quiet || git commit -m "auto: sync %H"'
+ExecStart=/usr/bin/git fetch origin
+ExecStart=/usr/bin/git rebase origin/main
+ExecStart=/usr/bin/git push origin main
+
+[Install]
+WantedBy=default.target
