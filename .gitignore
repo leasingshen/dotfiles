@@ -16,3 +16,4 @@ firefox/
 *.local
 .env
 .env.*
+.claude
