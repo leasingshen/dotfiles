@@ -13,7 +13,7 @@ dotfiles/
 │       └── init.lua            # Neovim 配置（Lazy.nvim）
 ├── starship/
 │   └── .config/
-│       └── starship.toml       # Starship 提示符（Catppuccin Mocha）
+│       └── starship.toml       # Starship 提示符（Catppuccin Macchiato）
 ├── systemd/
 ├── zsh/
 │   ├── .zshenv                 # 环境变量（所有 shell 均加载）
