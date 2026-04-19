@@ -8,7 +8,7 @@ NVIM_URL     := https://github.com/neovim/neovim/releases/download/$(NVIM_VERSIO
 
 # All packages sourced from apt
 APT_PKGS := git zsh curl stow build-essential unzip ripgrep fd-find \
-            nodejs npm python3 python3-pip direnv
+            nodejs npm python3 python3-pip python3.12-venv direnv
 
 .PHONY: all install uninstall apt neovim starship claude-code stow post-install
 
