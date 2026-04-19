@@ -10,7 +10,14 @@ dotfile_auto_sync() {
     upstream=$(git -C "$repo" rev-parse --abbrev-ref --symbolic-full-name '@{upstream}' 2>/dev/null) || return
 
     if [[ -n $(git -C "$repo" status --porcelain 2>/dev/null) ]]; then
-        print -P "%F{yellow}[dotfile]%f 跳过自动同步：仓库有未提交改动"
+        print -P "%F{cyan}[dotfile]%f 检测到本地改动，正在提交并推送..."
+        git -C "$repo" add -A
+        git -C "$repo" commit -m "auto: sync $(hostname)" --quiet
+        if git -C "$repo" push --quiet 2>/dev/null; then
+            print -P "%F{green}[dotfile]%f 已推送到远端"
+        else
+            print -P "%F{red}[dotfile]%f 推送失败，请手动 git push"
+        fi
         return
     fi
 

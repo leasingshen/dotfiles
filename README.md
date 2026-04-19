@@ -34,8 +34,10 @@ make
 
 | 步骤 | 内容 |
 |------|------|
-| `apt` | 安装系统依赖：git / zsh / stow / build-essential / ripgrep / fd / nodejs / python3 等 |
-| `brew` | 安装 Homebrew（若未安装），再安装 neovim / starship / direnv |
+| `apt` | 安装系统依赖：git / zsh / stow / build-essential / ripgrep / fd / nodejs / python3 / direnv 等 |
+| `neovim` | 从 GitHub Releases 下载官方 .deb 安装指定版本 |
+| `starship` | 通过官方安装脚本安装 |
+| `claude-code` | 通过官方安装脚本安装 |
 | `stow` | 将 `zsh` / `git` / `nvim` / `systemd` / `starship` 五个包 stow 到 `$HOME` |
 | `post-install` | 设置 zsh 为默认 shell；headless 启动 nvim 同步所有插件 |
 
@@ -92,9 +94,9 @@ make uninstall   # 删除所有 stow 创建的符号链接
 |------|----------|------|
 | stow | apt | 符号链接管理 |
 | zsh | apt | Shell |
-| neovim | brew | 编辑器 |
-| starship | brew | Shell 提示符 |
-| direnv | brew | 目录级环境变量 |
+| neovim | GitHub Releases (.deb) | 编辑器 |
+| starship | 官方安装脚本 | Shell 提示符 |
+| direnv | apt | 目录级环境变量 |
 | ripgrep | apt | telescope live grep |
 | fd | apt (fd-find) | telescope 文件查找 |
 | nodejs / npm | apt | ts_ls / prettier |

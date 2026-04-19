@@ -1,6 +1,6 @@
 [user]
-    name = leasingshen
-    email = leasingshen@outlook.com
+	name = leasingshen
+	email = leasingshen@outlook.com
 
 [core]
     editor = nvim

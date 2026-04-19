@@ -11,9 +11,6 @@ source "${ZINIT_HOME}/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# brew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
-
 # ── Plugins ─────────────────────────────────────────────────────────────────
 zinit light-mode wait lucid for \
     zsh-users/zsh-autosuggestions \
