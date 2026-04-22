@@ -56,5 +56,16 @@ alias ...='cd ../..'
 alias g='git'
 alias v='nvim'
 
+# ── Dotfile 后台同步输出 ──────────────────────────────────────────────────────
+_dotfile_sync_show() {
+    [[ -n "$_DOTFILE_SYNC_OUTPUT" && -f "$_DOTFILE_SYNC_OUTPUT" ]] || return
+    local content
+    content=$(< "$_DOTFILE_SYNC_OUTPUT")
+    rm -f "$_DOTFILE_SYNC_OUTPUT"
+    unset _DOTFILE_SYNC_OUTPUT
+    [[ -n "$content" ]] && print -- "$content"
+}
+precmd_functions+=(_dotfile_sync_show)
+
 # ── Envdir Active ────────────────────────────────────────────────────────────
 eval "$(direnv hook zsh)"

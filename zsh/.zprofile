@@ -50,4 +50,6 @@ dotfile_auto_sync() {
     print -P "%F{yellow}[dotfile]%f 跳过自动同步：本地分支领先或已分叉"
 }
 
-dotfile_auto_sync
+# 后台执行，输出写入临时文件，由 .zshrc 的 precmd 在首次提示符后显示
+export _DOTFILE_SYNC_OUTPUT="${TMPDIR:-/tmp}/dotfile_sync_output.$$"
+{ dotfile_auto_sync >| "$_DOTFILE_SYNC_OUTPUT" 2>&1; } &!
